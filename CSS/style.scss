@@ -1,0 +1,563 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+$gray1: #333333;
+$gray2: #828282;
+$main-red: #E5261E;
+$bg-white: #f2f2f2;
+$hover-red: #CC221B;
+$white: #ffffff;
+$anoth-white: #bdbdbd;
+$d-blue:#1F4766;
+
+$comedy-col: linear-gradient(127.83deg, #F2C94C 8.44%, #F29A4A 91.36%);
+$drama-col: linear-gradient(127.83deg, #F2994A 8.44%, #EB5757 91.36%);
+$scifi-col: linear-gradient(127.83deg, #56CCF2 8.44%, #2F80ED 91.36%);
+$horror-col: linear-gradient(127.83deg, #828282 8.44%, #333333 91.36%);
+
+
+@font-face {
+    font-family:Rubik-Medium ;
+    src: url(../fonts/Rubik-Medium.ttf);
+}
+@font-face {
+    font-family:Rubik-Regular;
+    src: url(../fonts/Rubik-Regular.ttf);
+}
+
+$R-Med: Rubik-Medium, sans-serif;
+$R-Reg: Rubik-Regular, sans-serif;
+
+@mixin Rubic($fontsize: 16px, $text-color: $gray1, $fontfam: $R-Med) {
+    font-size: $fontsize;
+    color: $text-color;
+    font-family: $fontfam;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header{
+    max-height: 40px;
+    height: 100%;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header__logo{
+    display:flex;
+    align-items: center;
+}
+
+.header__logo__name{
+    margin-left: 11.88px;
+    @include Rubic(20px);
+}
+
+.header__search{
+    display: flex;
+    max-width: 402px;
+}
+
+.header__search-text{
+    max-width: 320px;
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-bottom: 1px $gray1 solid;
+    @include Rubic;
+}
+
+.header__search-text::placeholder{
+    @include Rubic(16px, $gray2, $R-Reg)
+}
+
+.header__search-text:focus{
+    outline:none;
+}
+
+.header__search-button{
+    border: none;
+    background: none;
+    margin-left: 32px;
+    @include Rubic($text-color: $main-red)
+}
+
+.header__auth-btn{
+    width: 113px;
+    height: 38px;
+    background: $main-red ;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    @include Rubic($text-color:$white)
+}
+.header__auth-btn:hover{
+    background: $hover-red;
+}
+
+.nav{
+    width: 311px;
+    margin: 44px auto 32px auto;
+    display: flex;
+    justify-content: space-between;
+    height: 42px;
+}
+
+.nav__a{
+   text-decoration: none; 
+   @include Rubic(28px)
+}
+.nav__a:hover{
+    color: $main-red;
+    border-bottom: 2px $main-red solid;
+    padding-bottom: 9px;
+}
+
+.gallery__new{
+    margin-bottom: 16px;
+    @include Rubic(24px)
+}
+
+.gallery__movie-item-img{
+    border-radius: 8px;
+}
+
+.gallery__movie-item-p{
+    margin-top: 16px;
+    @include Rubic(20px, $gray1, $R-Reg)
+}
+
+.gallery__movie-item{
+    width: 280px;
+    position: relative;
+}
+
+.gallery__movie-item-desc{
+    width: 280px;
+    height: 370px;
+    background-color:rgba(51, 51, 51, 0.8) ;
+    border-radius: 8px;
+    line-height: 140%;
+    padding: 16px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    @include Rubic($text-color:$bg-white)
+}
+.gallery__movie-item:hover .gallery__movie-item-desc{
+    opacity: 1;
+}
+
+.gallery__movie{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.ganre{
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    width: 280px;
+    height: 208px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    opacity: 0.8;
+}
+.ganre:hover{
+    opacity: 1;
+}
+
+.comedy{
+    background: $comedy-col;
+}
+
+.drama{
+    background: $drama-col;
+}
+
+.scifi{
+    background: $scifi-col;
+}
+
+.horror{
+    background: $horror-col;
+}  
+
+.ganre__emj{
+    font-size: 48px;
+}
+
+.ganre__p{
+    position: absolute;
+    top: 160px;
+    @include Rubic(20px, $white,$R-Reg)
+}
+
+.ganre-gallery{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-container{
+    display: flex;
+    align-items: center;
+    height: 120px;
+}
+
+.footer{
+    background-color: $bg-white;
+    margin-top: 72px;
+    display: flex;
+}
+
+.footer__logo{
+    display: flex;
+    align-items: center;
+    margin-right: 39.98px;
+}
+
+.footer_info-adr{
+    @include Rubic($fontfam: $R-Reg)
+}
+
+.footer_info-a{
+    text-decoration: none;
+    @include Rubic($text-color: $d-blue)
+}
+
+.footer_info-adr:nth-child(2){
+    margin-bottom: 10px;
+    margin-top: 6px;
+}
+
+.channels{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    height: 696px;
+    overflow: auto;
+    overflow-x: hidden;
+
+}
+.channels::-webkit-scrollbar{
+    width: 8px;
+    
+}
+.channels::-webkit-scrollbar-track{
+    background: $bg-white;
+}
+.channels::-webkit-scrollbar-thumb{
+    background: $anoth-white;
+    border-radius: 4px;
+    border:2px solid transparent;
+    background-clip: content-box;
+}
+
+.channels__pervy{
+    display: flex;
+    background-color: $bg-white;
+    height: 162px;
+    align-items: center;
+    max-width: 1180px;
+    width: 100%;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.channels__pervy__icon{
+    max-width: 400px;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    object-fit: contain;
+}
+
+.channels__pervy__text-main{
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.channels__pervy__text{
+    display: flex;
+    gap: 16px;
+}
+
+.channels__pervy__name{
+    @include Rubic(20px)
+
+}
+
+.channels__pervy__time{
+    @include Rubic($fontfam: $R-Reg)
+}
+
+.channels__pervy__text-time{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.channels__pervy__text-prog{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.first-prog{
+    color: $main-red;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    width: 100%;
+    max-width: 304px;
+    min-height: 394px;
+    background: $white;
+    border-radius: 7px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    display: flex;
+}
+
+.login__title {
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 24px;
+    @include Rubic(28px)
+}
+
+.login__form  {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 36px;
+}
+
+.login__input {
+    width: 100%;
+    padding: 8px 0 4px;
+    margin-bottom: 24px;
+    border: none;
+    border-bottom: 1px solid #555555;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+    @include Rubic($fontfam: $R-Reg)
+}
+.login__input::placeholder {
+    color: $gray2;
+}
+.login__input:focus {
+    border-bottom-color: $main-red;
+}
+
+.login__remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login__remember__checkbox {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1px solid $gray1;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    background: $white;
+    flex-shrink: 0;
+} 
+
+.login__remember__checkbox:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid $main-red;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.login__remember__checkbox__text{
+    padding-bottom: 4px;
+    @include Rubic($fontfam: $R-Reg)
+}
+
+.login__button {
+    display: block;
+    width: 113px;
+    height: 38px;
+    margin: auto auto 0;
+    padding: 8px 0;
+    border: none;
+    border-radius: 5px;
+    background: $main-red;
+    cursor: pointer;
+}
+.login__button:hover {
+    background: $hover-red;
+}
+
+.login__button__text{
+    @include Rubic($text-color: $white)
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal__content {
+    position: relative;
+    background: $white;
+    border-radius: 7px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    width: 304px;
+    min-height: 394px;
+    display: flex;
+}
+
+.modal__close {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-size: 26px;
+    color: $gray1;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 1;
+    user-select: none;
+}
+
+.modal__close:hover {
+    color: $main-red;
+}
+
+@media screen and (max-width: 394px){
+    .container{
+        width: auto;
+    }
+
+    .header{
+        height: auto;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header__search{
+        width: auto;
+    }
+
+    .nav{
+        margin-top: 125px;
+    }
+
+    .header__logo__name{
+        @include Rubic(20px);
+    }
+    .gallery__movie{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .ganre-gallery{
+        flex-direction: column;
+        align-items: center;
+    }
+    .ganre{
+        margin-bottom: 10px;
+    }
+    .footer{
+        width: auto;
+        margin-bottom: 190px;
+        margin-top: 0;
+    }
+    .footer__logo{
+        padding-left: 15px;
+    }
+
+    .channels{
+        height: 730px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .channels__pervy{
+        width: 100%;
+        height: 170px;
+    }
+
+    .channels__pervy__icon{
+        width: 20%;
+        height: 64px;
+        display: flex;
+        object-fit: contain;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .channels__pervy__text-main{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .channels__pervy__text{
+        display: flex;
+        gap: 10px;
+    }
+
+    .channels__pervy__text-time{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .channels__pervy__text-prog{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .first-prog{
+        color: $main-red;
+    }
+
+}
